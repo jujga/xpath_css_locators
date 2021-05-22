@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from webdriver_manager.firefox import GeckoDriverManager
 from random import randint
 from selenium import webdriver
-
+редактирую в ветке learning_git
 
 def test():
     from IPython.display import Image
