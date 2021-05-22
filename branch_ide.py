@@ -1,1 +1,3 @@
-print("json vodruk")
+print("json vodruk");
+строка два
+строка3
