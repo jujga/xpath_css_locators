@@ -9,6 +9,7 @@ from random import randint
 from selenium import webdriver
 import json
 import andre
+редактирую в ветке learning_git
 
 def test():
     from IPython.display import Image
