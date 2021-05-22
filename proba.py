@@ -8,6 +8,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from random import randint
 from selenium import webdriver
 import json
+import andre
 
 def test():
     from IPython.display import Image
