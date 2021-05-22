@@ -7,6 +7,8 @@ from selenium.webdriver.common.keys import Keys
 from webdriver_manager.firefox import GeckoDriverManager
 from random import randint
 from selenium import webdriver
+import json
+import andre
 редактирую в ветке learning_git
 
 def test():
