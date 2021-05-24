@@ -109,7 +109,19 @@ def test_4(firefox_browser4):
     # inp_name.clear()
     # inp_name.send_keys(submit_btt.is_enabled())
     submit_btt.click()
-
+    #проверка книпок на видимость(доступность проверится автоматом)
+    # diprell
+    assert logo_diprella_visibility(firefox_browser4), 'ссылка diprella видимая'
+    # biblioteka
+    # pochuk
+    # lector
+    # иконка учетки
+    # лого посредине, фио под лого
+    # головне
+    # вподобання
+    # налаштування курсив
+    # профайл
+    #
     from selenium.webdriver.support.ui import WebDriverWait
     from selenium.webdriver.support import expected_conditions as EC
 
