@@ -32,6 +32,7 @@ def check_visibility(webelement):
 
 
     #использую проперти element_to_be_clickable, т.к. visibility_of почему-то бьет ошибку
+    #вопрос решен: для visibility_of необходимо передавать вебєлемент, а не стратегия+локатор
 def check_editable(strategy_locator):
     wait = WebDriverWait(Config.browser, 5)
     try:
