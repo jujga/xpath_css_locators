@@ -2,24 +2,29 @@ from page_objects.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
+
+
 class SignUpPage(BasePage):
+    from locators.locators import SignUpPageLocators
+
+
     def __init__(self, driver):
         super().__init__(driver)
 
     @property
     def email_field(self):
-        return self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#id_email")))
+        return self.wait.until(EC.element_to_be_clickable(self.SignUpPageLocators.EMAIL_FIELD.get_locator()))
 
     @property
     def username_field(self):
-        return self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#id_username")))
+        return self.wait.until(EC.element_to_be_clickable(self.SignUpPageLocators.USERNAME_FIELD.get_locator()))
     @property
     def password_field(self):
-        return self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#id_password1")))
+        return self.wait.until(EC.element_to_be_clickable(self.SignUpPageLocators.PASSWORD_FIELD.get_locator()))
 
     @property
     def password_again_field(self):
-        return self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#id_password2")))
+        return self.wait.until(EC.element_to_be_clickable(self.SignUpPageLocators.PASSWORD_AGAIN_FIELD.get_locator()))
 
     @property
     def signup_button_submit(self):
@@ -33,7 +38,7 @@ class SignUpPage(BasePage):
         self.username_field.send_keys(keys)
         return self
 
-    def enter_password(self):
+    def enter_password(self, keys):
         self.password_field.send_keys(keys)
         return self
 
