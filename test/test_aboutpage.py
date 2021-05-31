@@ -1,5 +1,6 @@
 from time import sleep
 import pytest
+import allure
 import random
 import string
 from selenium.webdriver import Chrome
@@ -22,11 +23,12 @@ def main_page(request):
     def fin():
         driver.quit()
 
-    #request.addfinalizer(fin)
+    request.addfinalizer(fin)
 
     return main_page
 
 
+@allure.title("Название теста. прописывается перед функцией теста")
 def test_about_page(main_page):
     about_page = main_page.go_to_about_page()
     about_banner = about_page.about_banner
