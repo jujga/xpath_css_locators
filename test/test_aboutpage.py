@@ -1,5 +1,6 @@
 from time import sleep
 import pytest
+import allure
 import random
 import string
 from selenium.webdriver import Chrome
@@ -10,11 +11,15 @@ from webdriver_manager.firefox import GeckoDriverManager
 from page_objects.main_page import MainPage
 
 
+
 @pytest.fixture
 def main_page(request):
+    from test.test_about_config_preset import about_conf_ins_allow
     #driver = Chrome(executable_path=ChromeDriverManager().install())
     driver = Firefox(executable_path=GeckoDriverManager().install())
     driver.maximize_window()
+    about_conf_ins_allow(driver)
+    sleep(5)
     driver.get('https://www.python.org')
 
     main_page = MainPage(driver)
@@ -27,6 +32,7 @@ def main_page(request):
     return main_page
 
 
+@allure.title("Название теста. прописывается перед функцией теста")
 def test_about_page(main_page):
     about_page = main_page.go_to_about_page()
     about_banner = about_page.about_banner
