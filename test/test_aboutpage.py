@@ -11,11 +11,15 @@ from webdriver_manager.firefox import GeckoDriverManager
 from page_objects.main_page import MainPage
 
 
+
 @pytest.fixture
 def main_page(request):
+    from test.test_about_config_preset import about_conf_ins_allow
     #driver = Chrome(executable_path=ChromeDriverManager().install())
     driver = Firefox(executable_path=GeckoDriverManager().install())
     driver.maximize_window()
+    about_conf_ins_allow(driver)
+    sleep(5)
     driver.get('https://www.python.org')
 
     main_page = MainPage(driver)
@@ -23,7 +27,7 @@ def main_page(request):
     def fin():
         driver.quit()
 
-    request.addfinalizer(fin)
+    #request.addfinalizer(fin)
 
     return main_page
 
